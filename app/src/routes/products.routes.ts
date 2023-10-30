@@ -1,15 +1,18 @@
 import { Router } from "express";
-import productsRouterGetAll from "./products-get-all.routes";
+import cors from "cors";
+
+import FetchAllProducts from "../controllers/GetProductsController";
+
 import productsRouterGetId from "./products-get-id.routes";
 import productsRouterPost from "./products-post.routes";
 import productsRouterPut from "./products-put.routes";
 import productsRouterDelete from "./products-delete.routes";
-import cors from "cors";
+
 
 
 const routes = Router();
 
-routes.use('/products', cors(), productsRouterGetAll)
+routes.get('/products', cors(), new FetchAllProducts().data)
 routes.use('/products/search', cors(), productsRouterGetId)
 routes.use('/products', cors(),productsRouterPost)
 routes.use('/products', cors(),productsRouterPut)
