@@ -46,7 +46,7 @@ Esta rota retorna todos os produtos cadastrados no banco de dados.
 
 ### Buscar um Produto por ID
 
-Endpoint: `GET /products/search?id=id`
+Endpoint: `GET /products/{productId}`
 
 Esta rota permite buscar um produto específico com base no seu ID.
 
@@ -86,7 +86,7 @@ curl http://localhost:3333/products
 - Buscar um produto por ID:
 
 ```shell
-curl http://localhost:3333/products/search?id=1
+curl http://localhost:3333/products/1
 ```
 
 - Inserir um novo produto:
