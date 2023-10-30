@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+
 import connection from '../database/connection'
 import { ValidateProduct } from "../utils/validations";
 

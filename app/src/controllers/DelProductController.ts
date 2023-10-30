@@ -1,9 +1,10 @@
 import { Request, Response } from "express";
+
 import connection from '../database/connection'
 import { ValidateProduct } from "../utils/validations";
 
 
-class DeleteProducts{
+class DeleteProduct{
     
     async data(request: Request, response: Response){
         const { id } = request.params
@@ -22,4 +23,4 @@ class DeleteProducts{
 
 }
 
-export default DeleteProducts;
+export default DeleteProduct;
