@@ -1,20 +1,44 @@
-import express, { request, response } from "express";
-import routes from "./routes/products.routes";
-import cors from "cors";
+import express from 'express';
+import routes from './routes/products.routes';
+import path from 'path';
+import cors from 'cors';
 
 
-const app = express();
+class Server{
+    app: express.Application;
 
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    app.use(cors());
-    next();
-});
+    constructor(EnablePermission: boolean, portServer: number, statusMessage: string){
 
-app.use(express.json());
-app.use(routes)
+        this.app = express();
 
-app.listen(3333, () => {
-    console.log("📌 Beckend started on port 3333 👌")
-})
+        if (EnablePermission === true){this.PermissionAccess()}
+        this.Settings()
+        this.EndPoints()        
+
+        this.ServerUp(portServer, statusMessage)
+    }
+
+    Settings(){
+        this.app.use(express.json())
+    }
+
+    EndPoints(){
+        this.app.use(routes)
+    }
+
+    ServerUp(portServer: number, statusMessage: string){
+        this.app.listen(portServer, () => {return console.log(statusMessage);})
+    }
+
+    PermissionAccess(){
+        this.app.use((req, res, next) => {
+            res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+            res.header('Access-Control-Allow-Headers', 'Content-Type');
+            this.app.use(cors());
+            next();
+        });
+    }
+}
+
+
+new Server(true, 3333, '📌 Backend started on port 3333 👌')
