@@ -1,6 +1,5 @@
 import express from 'express';
 import routes from './routes/products.routes';
-import path from 'path';
 import cors from 'cors';
 
 
