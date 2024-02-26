@@ -1,10 +1,9 @@
 import { Router } from "express";
 
-import FetchAllProducts from "../controllers/GetProductsController";
-import FetchProduct from "../controllers/GetProductController";
-import CreateProduct from "../controllers/PostProductController";
-import UpdateProduct from "../controllers/UpdateProductController";
-import DeleteProduct from "../controllers/DelProductController";
+import { FetchAllProducts, FetchProduct } from "../controllers/fetch.controller";
+import CreateProduct from "../controllers/insert.controller";
+import UpdateProduct from "../controllers/update.controller";
+import DeleteProduct from "../controllers/delete.controller";
 
 const routes = Router();
 

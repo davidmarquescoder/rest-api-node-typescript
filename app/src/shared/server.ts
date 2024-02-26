@@ -1,5 +1,5 @@
 import express from 'express';
-import routes from './routes/products.routes';
+import routes from '../modules/products/routes/products.routes';
 import cors from 'cors';
 
 

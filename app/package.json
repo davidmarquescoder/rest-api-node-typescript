@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node-dev --inspect --ignore-watch node_modules src/server.ts",
+    "start": "ts-node-dev --inspect --ignore-watch node_modules src/shared/server.ts",
     "migrate": "npx knex --knexfile knexfile.ts migrate:latest",
     "seed": "npx knex --knexfile knexfile.ts seed:run"
   },

@@ -1,10 +1,22 @@
 import { Request, Response } from "express";
 
-import connection from '../database/connection'
+import connection from '../../../database/connection'
 import { ValidateProduct } from "../utils/validations";
 
 
-class FetchProduct{
+export class FetchAllProducts{
+    
+    async data(request: Request, response: Response){
+        
+        const products = await connection('products').select('*')
+
+        return response.status(200).json(products);
+    }
+
+}
+
+
+export class FetchProduct{
     
     async data(request: Request, response: Response){
         const { id } = request.params
@@ -20,5 +32,3 @@ class FetchProduct{
         }
     }
 }
-
-export default FetchProduct;

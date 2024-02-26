@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 
-import connection from '../database/connection'
+import connection from '../../../database/connection'
 import { ValidateLength, ExistingProduct, ValidatePrice, ValidateStock } from "../utils/validations";
 
 
